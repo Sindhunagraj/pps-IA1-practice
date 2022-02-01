@@ -1,0 +1,200 @@
+ gcc -g p5original.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x837: file p5original.c, line 36.
+(gdb) r
+Starting program: /home/runner/pps-IA1-practice-2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p5original.c:36
+36    a=input();
+(gdb) s
+input () at p5original.c:4
+4   {
+(gdb) n
+6     printf("Enter a no.: ");
+(gdb) n
+7     scanf("%d",&n);
+(gdb) n
+Enter a no.: 7
+8     return n;
+(gdb) n
+9   }
+(gdb) n
+main () at p5original.c:37
+37    b=my_sqrt(a);
+(gdb) s
+my_sqrt (n=7) at p5original.c:14
+14    start=0,end=n;
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) 
+17      mid=(start+end)/2;
+(gdb) 
+18      if(mid*mid<n)
+(gdb) p end
+$1 = 7
+(gdb) p mid
+$2 = 3.5
+(gdb) p start
+$3 = 0
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+22      end=mid;
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$4 = 3.5
+(gdb) p mid
+$5 = 3.5
+(gdb) p start
+$6 = 0
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) n
+18      if(mid*mid<n)
+(gdb) n
+19      start=mid;
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$7 = 3.5
+(gdb) p mid
+$8 = 1.75
+(gdb) p start
+$9 = 1.75
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) n
+18      if(mid*mid<n)
+(gdb) n
+19      start=mid;
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$10 = 3.5
+(gdb) p mid
+$11 = 2.625
+(gdb) p start
+$12 = 2.625
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) n
+18      if(mid*mid<n)
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+22      end=mid;
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$13 = 3.0625
+(gdb) p mid
+$14 = 3.0625
+(gdb) p start
+$15 = 2.625
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) n
+18      if(mid*mid<n)
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+22      end=mid;
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$16 = 2.84375
+(gdb) p mid
+$17 = 2.84375
+(gdb) p start
+$18 = 2.625
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) n
+18      if(mid*mid<n)
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+22      end=mid;
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$19 = 2.734375
+(gdb) p mid
+$20 = 2.734375
+(gdb) p start
+$21 = 2.625
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) n
+18      if(mid*mid<n)
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+22      end=mid;
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$22 = 2.6796875
+(gdb) p mid
+$23 = 2.6796875
+(gdb) p start
+$24 = 2.625
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) n
+18      if(mid*mid<n)
+(gdb) n
+21      if(mid*mid>=n)
+(gdb) n
+22      end=mid;
+(gdb) n
+15    while((end-start)>=0.000001)
+(gdb) p end
+$25 = 2.65234375
+(gdb) p mid
+$26 = 2.65234375
+(gdb) p start
+$27 = 2.625
+(gdb) n
+17      mid=(start+end)/2;
+(gdb) f
+#0  my_sqrt (n=7) at p5original.c:17
+17      mid=(start+end)/2;
+(gdb) finsh
+Undefined command: "finsh".  Try "help".
+(gdb) finish
+Run till exit from #0  my_sqrt (n=7) at p5original.c:17
+0x00005603d2a0084e in main () at p5original.c:37
+37    b=my_sqrt(a);
+Value returned is $28 = 2.64575052
+(gdb) n
+38    output(b);
+(gdb) n
+39    return 0;
+(gdb) n
+40  }(gdb) c
+Continuing.
+sq root is 2.645751[Inferior 1 (process 148) exited normally]
+(gdb) 
